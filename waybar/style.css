@@ -1,0 +1,101 @@
+* {
+    font-family: Maple Mono, "Roboto", sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#workspaces button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin-right: 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#workspaces button.active {
+    background: linear-gradient(135deg, #58add6, #e28de4);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#clock {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 5px 15px;
+}
+
+#custom-music-prev, #custom-music-playpause, #custom-music-next, #custom-music-title {
+    background-color: rgba(255, 255, 255, 0.1); /* Uniform background color */
+    color: #FFFFFF; /* White text for all music modules */
+    font-size: 14px;
+    padding: 5px 15px;
+    margin: 0; /* No margin to remove spacing between modules */
+    transition: background-color 0.3s ease-in-out;
+}
+
+#custom-music-title {
+    font-weight: bold;
+}
+
+#custom-music-prev {
+    border-top-left-radius: 8px; /* Only round the left border on the first item */
+    border-bottom-left-radius: 8px;
+}
+
+#custom-music-title {
+    border-top-right-radius: 8px; /* Only round the right border on the last item */
+    border-bottom-right-radius: 8px;
+}
+
+#custom-volume, #bluetooth, #network, #cpu, #memory, #battery {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    min-width: 50px;
+}
+
+#network.disconnected, #bluetooth.disabled {
+    color: #ff5555;
+}
+
+#memory {
+    min-width: 80px;
+}
+
+#bluetooth.connected, #battery.discharging {
+    color: #55ff55;
+}
+
+#battery.warning {
+    color: #ffa500;
+}
+
+#battery.critical {
+    color: #ff5555;
+}
+
+#battery.charging {
+    color: #ffff55;
+}
+
+#custom-volume, #bluetooth, #network {
+    color: #268bd2;
+}
+
+#battery, #cpu, #memory {
+    font-weight: bold;
+}
+

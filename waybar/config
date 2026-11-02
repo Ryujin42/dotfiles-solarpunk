@@ -1,0 +1,127 @@
+{
+    "position": "top",
+    "height": 36,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/music-prev",
+        "custom/music-playpause",
+        "custom/music-next",
+        "custom/music-title",
+        "custom/volume",
+        "bluetooth",
+        "network",
+        "cpu",
+        "memory",
+        "battery"
+    ],
+
+    // modules-left
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1",
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    // modules-center
+    "clock": {
+        "format": "{:%a %d-%m-%Y %H:%M:%S}",
+        "tooltip": true,
+        "tooltip-format": "{calendar}",
+        "interval": 1
+    },
+
+    // modules-right
+    "custom/music-prev": {
+        "exec": "~/.config/waybar/music/prev.sh",
+        "on-click": "playerctl previous",
+        "tooltip": false,
+        "interval": 1
+    },
+
+    "custom/music-playpause": {
+        "exec": "~/.config/waybar/music/play-pause.sh",
+        "on-click": "playerctl play-pause",
+        "tooltip": false,
+        "interval": 1
+    },
+
+    "custom/music-next": {
+        "exec": "~/.config/waybar/music/next.sh",
+        "on-click": "playerctl next",
+        "tooltip": false,
+        "interval": 1
+    },
+
+    "custom/music-title": {
+        "exec": "~/.config/waybar/music/title.sh",
+        "escape": true,
+        "max-length": 25,
+        "return-type": "json",
+        "interval": 1
+    },
+
+    "custom/volume": {
+        "exec": "~/.config/waybar/volume.sh",
+        "on-click": "pamixer -t",
+        "on-right-click": "pavucontrol",
+        "on-scroll-up": "pamixer --increase 5",
+        "on-scroll-down": "pamixer --decrease 5",
+        "interval": 1
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " on",
+        "format-disabled": " off",
+        "tooltip": false,
+        "on-click": "blueman-manager",
+        "interval": 1
+    },
+
+    "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": "󰈀  {cidr}",
+        "tooltip-format": "{essid}\n{ifname}: {ipaddr}/{cidr}\n\n {bandwidthUpOctets}\n {bandwidthDownOctets}",
+        "format-disconnected": "󰖪  disc",
+        "on-click": "nm-connection-editor",
+        "interval": 1
+    },
+
+    "cpu": {
+        "format": "{usage}%",
+        "tooltip": false,
+        "interval": 1
+    },
+
+    "memory": {
+        "format": "{used} GiB",
+        "tooltip": false,
+        "interval": 1
+    },
+
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format-icons": {
+            "charging": "",
+            "discharging": ["", "", "", "", ""]
+        },
+        
+        "tooltip-format": "time: {time}\nhealth: {health}%",
+        "interval": 1
+    }
+}
+
